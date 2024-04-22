@@ -11,6 +11,10 @@ export class AppComponent {
   inputMessage: string = "Merci de saisir un texte ici";
   colSpanValue: number = 3;
   messageAlerte: string = "Pourquoi tu cliques sur moi ?";
+  textSaisi:string="";
+  estPresent: boolean = false;
+  textBouton: string ="Afficher";
+  listeDePays: string[] = ["Congo", "Gabon", "Cameroun", "Mali", "Sénégal", "France", "Italie"];
 
   showMessage(messageAlerte: string){
     alert(this.messageAlerte);
@@ -19,6 +23,11 @@ export class AppComponent {
   showMessageOnKeyPress(onKeyPressEvent: any){
     this.messageAlerte = onKeyPressEvent.target?.value;
     this.showMessage(this.messageAlerte);
+  }
+
+  afficherDOM(){
+    this.estPresent = !this.estPresent;
+    this.estPresent ? this.textBouton="Cacher le texte": this.textBouton="Afficher le texte";
   }
 
 }

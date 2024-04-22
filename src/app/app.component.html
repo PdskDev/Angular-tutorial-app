@@ -4,6 +4,8 @@
   <p><input type="text" value="{{welcomeMessage}}" /></p>
   <p><input type="text" [value]="inputMessage" (blur)="showMessageOnKeyPress($event)"/></p>
   <p><input type="text" [value]="inputMessage" on-blur="showMessageOnKeyPress($event)"/></p>
+  <p [textContent]="textSaisi"></p>
+  <p><input type="text" [(ngModel)]="textSaisi" size="50"/></p>
   <button type="button" (click)="showMessage('Pourquoi tu cliques sur moi ?')">Click</button>
 </div>
 <div>
@@ -24,4 +26,21 @@
   </tr>
   </table>
 </div>
+<p></p>
+<div>
+  <button type="button" (click)="afficherDOM()">{{textBouton}}</button>
+  <div *ngIf="estPresent">
+    <h1>Affiche ce texte</h1>
+  </div>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let pays of listeDePays">
+      {{pays}}
+    </li>
+  </ul>
+</div>
+
+
+
 <router-outlet></router-outlet>
