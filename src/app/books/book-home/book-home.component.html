@@ -17,6 +17,6 @@
     </ul>
   </div>
   <div class="col-9">
-    <app-book-details [book]="selectedBook"></app-book-details>
+    <app-book-details [book-cible]="selectedBook" (onDelete)="deleteBook($event)"></app-book-details>
   </div>
 </div>

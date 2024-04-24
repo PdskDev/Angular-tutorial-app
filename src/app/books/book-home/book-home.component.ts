@@ -9,11 +9,16 @@ import { BOOKS } from 'src/app/models/mock-books-list';
 })
 export class BookHomeComponent {
   booksList: Book[] = BOOKS;
-  selectedBook!: Book;
+  selectedBook: Book | undefined;
 
   getBookDetails(isbn: number) {
    var selectedBook = this.booksList.filter(book => book.isbn === isbn);
    this.selectedBook = selectedBook[0];
+  }
+
+  deleteBook(isbn: number){
+    this.selectedBook = undefined;
+    this.booksList = this.booksList.filter(book => book.isbn !== isbn);
   }
 
 }

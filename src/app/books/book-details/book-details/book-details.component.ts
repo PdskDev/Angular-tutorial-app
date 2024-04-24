@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from 'src/app/models/Book';
 
 @Component({
@@ -7,7 +7,12 @@ import { Book } from 'src/app/models/Book';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent {
-  @Input() book: Book | undefined;
+  @Input("book-cible") book: Book | undefined;
+  @Output() onDelete = new EventEmitter<number>();
+
+  deleteThisBook() {
+    this.onDelete.emit(this.book?.isbn);
+  }
 
 
 
