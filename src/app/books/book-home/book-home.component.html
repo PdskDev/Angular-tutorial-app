@@ -6,7 +6,7 @@
       <li class="list-item" *ngFor="let book of booksList" (click)="getBookDetails(book.isbn)">
         <div class="cover-image-container">
           <span class="cover-image">
-            <img [src]="book.coverImage" width="50"/>
+            <img [src]="book.coverImage"/>
           </span>
         </div>
         <div class="clear">
@@ -17,16 +17,6 @@
     </ul>
   </div>
   <div class="col-9">
-    <div *ngIf="selectedBook" class="row selected-book">
-      <div class="col-2">
-        <img [src]="selectedBook.coverImage" alt="cover image"/>
-      </div>
-      <div class="col-8">
-        <h3 class="title">{{selectedBook.title}}</h3>
-        <p>{{selectedBook.authors}}</p>
-        <p>{{selectedBook.published}}</p>
-        <p>{{selectedBook.description}}</p>
-      </div>
-    </div>
+    <app-book-details [book]="selectedBook"></app-book-details>
   </div>
 </div>
