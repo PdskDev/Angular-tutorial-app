@@ -42,6 +42,4 @@ export class BookHomeComponent implements OnInit {
     this.booksList = this.bookStoreService.deleteBook(isbn);
   }
 
-
-
 }
