@@ -8,7 +8,7 @@ import { Book } from 'src/app/models/Book';
 })
 export class BookDetailsComponent {
   @Input("book-cible") book: Book | undefined;
-  @Output() onDelete = new EventEmitter<number>();
+  @Output("book-to-delete") onDelete = new EventEmitter<number>();
 
   deleteThisBook() {
     this.onDelete.emit(this.book?.isbn);
