@@ -25,7 +25,7 @@ export class BookSearchComponent implements OnInit {
       distinctUntilChanged(),
       mergeMap(search => of(search).pipe(delay(200))),
     ).subscribe(title =>
-      this.bookStoreService.getBooksTitles(title)
+      this.bookStoreService.getOnlyTitlesOfBooks(title)
       .subscribe(bookTitles => this.bookTitles = bookTitles));
   }
 
