@@ -18,8 +18,8 @@ export class BookSearchComponent implements OnInit {
 
   public searchTitleKeyUP = new Subject<KeyboardEvent>();
   public sugessionsClick = new Subject<MouseEvent>();
-  private subscriptionInputSearch: Subscription | undefined;
-  private subscriptionSugessionsClick: Subscription | undefined;
+  //private subscriptionInputSearch: Subscription | undefined;
+  //private subscriptionSugessionsClick: Subscription | undefined;
 
   constructor(private bookStoreService: BookServiceService){
 
@@ -46,24 +46,20 @@ export class BookSearchComponent implements OnInit {
   }
 
   booksSearch(){
-    const search$ = this.searchTitleKeyUP.pipe(
+    this.searchTitleKeyUP.pipe(
       map((event: KeyboardEvent) => (<HTMLInputElement>event.target).value),
       debounceTime(400),
       distinctUntilChanged(),
       switchMap((title) => this.bookStoreService.getOnlyTitlesOfBooks(title))
-    );
-
-    search$.subscribe(booksTitlesList => this.bookTitles = booksTitlesList);
+    ).subscribe(booksTitlesList => this.bookTitles = booksTitlesList);
   }
 
   clickTitleSuggestions(){
-    const search$ = this.sugessionsClick.pipe(
+    this.sugessionsClick.pipe(
       map((event: MouseEvent) => (<HTMLInputElement>event.target).innerText),
       debounceTime(100),
       distinctUntilChanged(),
-    );
-
-    search$.subscribe(title => {
+    ).subscribe(title => {
       this.searchInputTerm = title;
       this.bookTitles = [];
     });
