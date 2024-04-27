@@ -18,31 +18,17 @@ export class BookSearchComponent implements OnInit {
 
   public searchTitleKeyUP = new Subject<KeyboardEvent>();
   public sugessionsClick = new Subject<MouseEvent>();
-  //private subscriptionInputSearch: Subscription | undefined;
-  //private subscriptionSugessionsClick: Subscription | undefined;
 
-  constructor(private bookStoreService: BookServiceService){
-
-  }
+  constructor(private bookStoreService: BookServiceService){}
 
   ngOnInit(): void {
-   /* this.subscriptionInputSearch = this.keyUP.pipe(
-      map(event => (<HTMLInputElement>event.target).value),
-      debounceTime(300),
-      distinctUntilChanged(),
-      mergeMap(search => of(search).pipe(delay(200))),
-    ).subscribe(title =>
-      this.bookStoreService.getOnlyTitlesOfBooks(title)
-      .subscribe(bookTitles => this.bookTitles = bookTitles)); */
-
       this.booksSearch();
       this.clickTitleSuggestions();
   }
 
-  searchBooks() {
+  sendSearchBooks() {
     this.bookTitles = [];
     this.searchBookTitle.emit(this.searchInputTerm);
-
   }
 
   booksSearch(){

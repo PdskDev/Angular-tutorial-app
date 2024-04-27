@@ -9,6 +9,8 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 import { BookServiceService } from './services/book-service.service';
 import { BookApiService } from './services/book-api.service';
 import { BookSearchComponent } from './books/book-search/book-search.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { BookSearchHomeComponent } from './books/book-search-home/book-search-home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { BookSearchComponent } from './books/book-search/book-search.component';
     AppHomeComponent,
     BookDetailsComponent,
     BookSearchComponent,
+    BookListComponent,
+    BookSearchHomeComponent,
 
   ],
   imports: [

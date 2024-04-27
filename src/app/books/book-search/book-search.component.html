@@ -1,9 +1,10 @@
+<div class="container">
 <h3 class="page-title">Books Search</h3>
 <div class="search-container">
   <div class="books-search-form">
     <input type="text" class="search-input" placeholder="Book Title" #searchInput
     (keyup)="searchTitleKeyUP.next($event)" [(ngModel)]="searchInputTerm" autocomplete="off"/>
-    <button class="btn btn-primary" (click)="searchBooks()">Search</button>
+    <button class="btn btn-primary" (click)="sendSearchBooks()">Search</button>
     </div>
     <div class="title-suggestion-list--wrapper">
       <ul *ngIf="bookTitles" class="title-suggestion-list" #suggestions
@@ -12,6 +13,9 @@
         {{bookTitle}}</li>
       </ul>
     </div>
-
+</div>
+<div>
+  <app-book-list></app-book-list>
+</div>
 
 </div>
