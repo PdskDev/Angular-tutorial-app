@@ -11,9 +11,10 @@
           <div class="col-sm-6 form-group">
             <label>First name</label>
             <input type="text" class="form-control" ngModel name="firstName" #firstNameRef="ngModel"
-            required [class.ctrl-error]="firstNameRef.touched && firstNameRef?.errors?.['required']" minlength="3"/>
+            [class.ctrl-error]="firstNameRef.touched && firstNameRef?.errors?.['required']" minlength="3" required/>
             <div *ngIf="firstNameRef.touched && firstNameRef?.errors?.['required']" class="error-message">
-            The first name is required</div>
+            The first name is required
+          </div>
             <div *ngIf="firstNameRef.touched && firstNameRef?.errors?.['minlength']" class="error-message">
               You should enter minimum {{firstNameRef?.errors?.['minlength'].requiredLength}}
               characters but you only entered only {{firstNameRef?.errors?.['minlength'].actualLength}}
@@ -24,50 +25,92 @@
           </div>
           <div class="col-sm-6 form-group">
             <label>Last name</label>
-            <input type="text" class="form-control" ngModel name="lastName" #lastNameRef="ngModel"/>
+            <input type="text" class="form-control" ngModel name="lastName" #lastNameRef="ngModel" required/>
+            <div *ngIf="lastNameRef.touched && lastNameRef?.errors?.['required']" class="error-message">
+              The last name is required
+            </div>
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" class="form-control" name="email" ngModel #emailRef="ngModel">
+          <input type="email" class="form-control" name="email" ngModel #emailRef="ngModel" [pattern]="EMAIL_REGEX" required>
+          <div *ngIf="emailRef.touched && emailRef?.errors?.['required']" class="error-message">
+            The email is required
+          </div>
+          <div *ngIf="emailRef.touched && emailRef?.errors?.['pattern']" class="error-message">
+            The email format should be name@domain.tld
+          </div>
         </div>
         <div class="row">
           <div class="col-sm-6 form-group">
             <label>Enter Password</label>
-            <input type="password" class="form-control" name="password" ngModel #passwordRef="ngModel">
+            <input type="password" class="form-control" name="password" ngModel #passwordRef="ngModel" required
+            [pattern]="PASSWORD_STRENGTH_REGEX">
+            <div *ngIf="passwordRef.touched && passwordRef?.errors?.['required']" class="error-message">
+              Password is required
+            </div>
+            <div *ngIf="passwordRef.touched && passwordRef?.errors?.['pattern']" class="error-message">
+              Password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+            </div>
           </div>
           <div class="col-sm-6 form-group">
             <label>Confirm Password</label>
-            <input type="password" class="form-control" name="confirmPassword" ngModel #confirmPassRef="ngModel">
+            <input type="password" class="form-control" name="confirmPassword" ngModel #confirmPassRef="ngModel" required
+            [pattern]="PASSWORD_STRENGTH_REGEX">
+            <div class="error-message" *ngIf="confirmPassRef.touched && confirmPassRef?.errors?.['required']">
+                The confirm password is required.
+              </div>
+              <div *ngIf="confirmPassRef.touched && confirmPassRef?.errors?.['pattern']" class="error-message">
+                Confirm password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+              </div>
           </div>
         </div>
         <div ngModelGroup="address" #addressRef="ngModelGroup">
           <div class="row">
             <div class="col-sm-6 form-group">
               <label>Street</label>
-              <input type="text" class="form-control" name="street" ngModel #streetRef="ngModel">
+              <input type="text" class="form-control" name="street" ngModel #streetRef="ngModel" required>
+              <div class="error-message" *ngIf="streetRef.touched && streetRef?.errors?.['required']">
+                Street is required.
+              </div>
             </div>
             <div class="col-sm-6 form-group">
               <label>City</label>
-              <input type="text" class="form-control" name="city" ngModel #cityRef="ngModel">
+              <input type="text" class="form-control" name="city" ngModel #cityRef="ngModel" required>
+              <div class="error-message" *ngIf="cityRef.touched && cityRef?.errors?.['required']">
+                City is required.
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6 form-group">
               <label>State</label>
-              <input type="text" class="form-control" name="state" ngModel #stateRef="ngModel">
+              <input type="text" class="form-control" name="state" ngModel #stateRef="ngModel" required>
+              <div class="error-message" *ngIf="stateRef.touched && stateRef?.errors?.['required']">
+                State is required.
+              </div>
             </div>
             <div class="col-sm-6 form-group">
               <label>Zip</label>
-              <input type="text" class="form-control" name="zip" ngModel #zipRef="ngModel">
+              <input type="text" class="form-control" name="zip" ngModel #zipRef="ngModel" required>
+              <div class="error-message" *ngIf="zipRef.touched && zipRef?.errors?.['required']">
+                Zip is required.
+              </div>
             </div>
           </div>
           <div class="form-group">
             <label>Country</label>
-            <select class="form-control" name="country" ngModel="" #countryRef="ngModel">
+            <select class="form-control" name="country" ngModel="" #countryRef="ngModel" required>
               <option value="CG">Congo</option>
+              <option value="GA">Gabon</option>
+              <option value="ML">Mali</option>
+              <option value="BE">Belgique</option>
+              <option value="IT">Italy</option>
               <option value="FR">France</option>
             </select>
+            <div class="error-message" *ngIf="countryRef.touched && countryRef?.errors?.['required']">
+                Country is required.
+              </div>
           </div>
         </div>
         <div class="row">
@@ -75,26 +118,32 @@
             <label>Gender</label>
             <div>
               <label class="check-label">
-                <input type="radio" name="gender" value="Male" ngModel #genderRef="ngModel"><i class="blue"></i>Male
+                <input type="radio" name="gender" value="Male" ngModel #genderRef="ngModel" required><i class="blue"></i>Male
               </label>
               <div class="spacer"></div>
               <label class="check-label">
-                <input type="radio" name="gender" value="Female" ngModel #genderRef="ngModel"><i class="blue"></i>Female
+                <input type="radio" name="gender" value="Female" ngModel #genderRef="ngModel" required><i class="blue"></i>Female
               </label>
               <div class="spacer"></div>
               <label class="check-label">
-                <input type="radio" name="gender" value="Other" ngModel #genderRef="ngModel"><i class="blue"></i>Other
+                <input type="radio" name="gender" value="Other" ngModel #genderRef="ngModel" required><i class="blue"></i>Other
               </label>
+            </div>
+            <div class="error-message" *ngIf="genderRef.touched && genderRef?.errors?.['required']">
+              Gender is required.
             </div>
           </div>
         </div>
         <div class="form-group">
           <label class="check-label">
-            <input type="checkbox" name="agreement" value="" ngModel #agreementRef="ngModel"><i class="blue"></i>
+            <input type="checkbox" name="agreement" value="" ngModel #agreementRef="ngModel" required><i class="blue"></i>
               I agree to the Terms of Service
           </label>
+          <div class="error-message" *ngIf="agreementRef.touched && agreementRef?.errors?.['required']">
+            Gender is required.
+          </div>
         </div>
-        <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+        <button type="submit" class="btn btn-secondary mt-2" [disabled]="formRegistrationRef.invalid">Submit</button>
         </form>
     </div>
   </div>
