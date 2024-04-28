@@ -1,0 +1,133 @@
+<div class="row m-2">
+  <div class="col-md-8">
+    <div class="box">
+      <div class="box-header">
+        <h2>RX Builder Registration form</h2>
+      </div>
+      <div class="box-divider"></div>
+      <div class="box-body">
+        <form novalidate [formGroup]="registrationFormFbuilder" (ngSubmit)="onSubmit(registrationFormFbuilder.value)">
+          <div class="row">
+          <div class="col-sm-6 form-group">
+            <label>First name</label>
+            <input type="text" class="form-control" formControlName="firstName"/>
+            <div *ngIf="registrationFormFbuilder.get('firstName')?.touched
+            && registrationFormFbuilder.get('firstName')?.hasError('required')" class="error-message">
+              First name is required
+            </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Last name</label>
+            <input type="text" class="form-control" formControlName="lastName"/>
+            <div *ngIf="registrationFormFbuilder.get('lastName')?.touched
+            && registrationFormFbuilder.get('lastName')?.hasError('required')" class="error-message">
+              Last name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <label>Enter Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <div *ngIf="registrationFormFbuilder.get('password')?.touched
+            && registrationFormFbuilder.get('password')?.hasError('required')" class="error-message">
+              Password is required
+            </div>
+            <div *ngIf="registrationFormFbuilder.get('password')?.touched
+            && registrationFormFbuilder.get('password')?.hasError('weakPassword')" class="error-message">
+              Password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+            </div>
+            <div *ngIf="registrationFormFbuilder.get('password')?.touched
+              && registrationFormFbuilder.hasError('mismatch')" class="error-message">
+                Password should match Confirm password
+              </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword">
+            <div class="error-message" *ngIf="registrationFormFbuilder.get('confirmPassword')?.touched
+            && registrationFormFbuilder.get('confirmPassword')?.hasError('required')">
+                Confirm password is required.
+              </div>
+              <div *ngIf="registrationFormFbuilder.get('confirmPassword')?.touched
+              && registrationFormFbuilder.get('confirmPassword')?.hasError('weakPassword')" class="error-message">
+                Confirm password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+              </div>
+              <div *ngIf="registrationFormFbuilder.get('confirmPassword')?.touched
+              && registrationFormFbuilder.hasError('mismatch')" class="error-message">
+                Confirm password should match Password
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email">
+          <div *ngIf="registrationFormFbuilder.get('email')?.touched
+          && registrationFormFbuilder.get('email')?.hasError('required')" class="error-message">
+            Email required
+          </div>
+          <div *ngIf="registrationFormFbuilder.get('email')?.touched
+          && registrationFormFbuilder.get('email')?.hasError('pattern')" class="error-message">
+            Email format is invalid
+          </div>
+        </div>
+        <div formGroupName="address">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>Street</label>
+              <input type="text" class="form-control" formControlName="street">
+              <div class="error-message" *ngIf="registrationFormFbuilder.get('address')?.get('street')?.touched
+              && registrationFormFbuilder.get('address')?.get('street')?.hasError('required')">
+                Street is required.
+              </div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>City</label>
+              <input type="text" class="form-control" formControlName="city">
+              <div class="error-message" *ngIf="registrationFormFbuilder.get('address')?.get('city')?.touched
+              && registrationFormFbuilder.get('address')?.get('city')?.hasError('required')">
+                City is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>State</label>
+              <input type="text" class="form-control" formControlName="state">
+              <div class="error-message" *ngIf="registrationFormFbuilder.get('address')?.get('state')?.touched
+              && registrationFormFbuilder.get('address')?.get('state')?.hasError('required')">
+                State is required.
+              </div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Zip</label>
+              <input type="text" class="form-control" formControlName="zip">
+              <div class="error-message" *ngIf="registrationFormFbuilder.get('address')?.get('zip')?.touched
+              && registrationFormFbuilder.get('address')?.get('zip')?.hasError('required')">
+                Zip is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <select class="form-control" formControlName="country">
+              <option value="CG">Congo</option>
+              <option value="GA">Gabon</option>
+              <option value="ML">Mali</option>
+              <option value="BE">Belgique</option>
+              <option value="IT">Italy</option>
+              <option value="FR">France</option>
+            </select>
+            <div class="error-message" *ngIf="registrationFormFbuilder.get('address')?.get('country')?.touched
+            && registrationFormFbuilder.get('address')?.get('country')?.hasError('required')">
+                Country is required.
+              </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-secondary mt-2" [disabled]="registrationFormFbuilder.invalid">Submit</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+

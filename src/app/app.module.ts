@@ -14,6 +14,7 @@ import { BookSearchHomeComponent } from './books/book-search-home/book-search-ho
 import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
 import { FormHomeComponent } from './forms/form-home/form-home.component';
 import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-registration-form.component';
+import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registration-form/rx-builder-registration-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-reg
     RegistrationFormComponent,
     FormHomeComponent,
     RxRegistrationFormComponent,
+    RxBuilderRegistrationFormComponent,
   ],
   imports: [
     BrowserModule,
