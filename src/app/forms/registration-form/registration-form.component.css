@@ -133,3 +133,12 @@ body {
   display: inline-block;
   position: relative;
 }
+
+.error-message {
+  padding: 0.5rem 0;
+  color: red;
+}
+
+.ctrl-error {
+  border: 1px solid red;
+}
