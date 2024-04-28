@@ -16,7 +16,7 @@ export class RxBuilderRegistrationFormComponent implements OnInit{
 
   ngOnInit(): void {
       this.registrationFormFbuilder = this.formBuilder.group({
-        firstName: ['Nadet', Validators.required],
+        firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         email: ['', [Validators.required, Validators.pattern(this.EMAIL_REGEX)]],
         password: ['', [Validators.required, CustomValidators.passwordValidityCheck]],
