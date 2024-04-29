@@ -15,6 +15,8 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
 import { FormHomeComponent } from './forms/form-home/form-home.component';
 import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-registration-form.component';
 import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registration-form/rx-builder-registration-form.component';
+import { HttpClientModule} from '@angular/common/http';
+import { BooksStoreHomeComponent } from './books-store/books-store-home/books-store-home.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registrat
     FormHomeComponent,
     RxRegistrationFormComponent,
     RxBuilderRegistrationFormComponent,
+    BooksStoreHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   //providers: [{provide: BookServiceService, useClass: BookApiService}],
   providers: [BookServiceService],

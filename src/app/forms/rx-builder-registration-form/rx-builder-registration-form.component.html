@@ -35,7 +35,7 @@
             </div>
             <div *ngIf="registrationFormFbuilder.get('password')?.touched
             && registrationFormFbuilder.get('password')?.hasError('weakPassword')" class="error-message">
-              Password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+              Password must be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
             </div>
             <div *ngIf="registrationFormFbuilder.get('password')?.touched
               && registrationFormFbuilder.hasError('mismatch')" class="error-message">
@@ -51,7 +51,7 @@
               </div>
               <div *ngIf="registrationFormFbuilder.get('confirmPassword')?.touched
               && registrationFormFbuilder.get('confirmPassword')?.hasError('weakPassword')" class="error-message">
-                Confirm password lust be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
+                Confirm password must be minimum 8 characters, must contain at least 1 lowcase, 1 uppercase, 1 numeric, 1 special character
               </div>
               <div *ngIf="registrationFormFbuilder.get('confirmPassword')?.touched
               && registrationFormFbuilder.hasError('mismatch')" class="error-message">
