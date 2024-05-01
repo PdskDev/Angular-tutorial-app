@@ -1,41 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { BookDetailsComponent } from 'src/app/books/book-details/book-details.component';
 import { Book } from 'src/app/models/BookModel';
+import { BookApiService } from 'src/app/services/book-api.service';
 
 @Component({
   selector: 'app-books-store-home',
   templateUrl: './books-store-home.component.html',
-  styleUrls: ['./books-store-home.component.css']
+  styleUrls: ['./books-store-home.component.css'],
 })
-export class BooksStoreHomeComponent implements OnInit{
- book: Book ={
-   id: 0,
-   isbn: '',
-   title: '',
-   authors: '',
-   published: '',
-   description: '',
-   coverImage: ''
- }
+export class BooksStoreHomeComponent implements OnInit {
+  book: Book | undefined;
 
   booksList: Book[] = [];
-  apiUrl: string = "http://localhost:4567";
 
-  constructor(private http: HttpClient){}
+  constructor(private bookStoreService: BookApiService) {}
   ngOnInit(): void {
     this.getBooksData();
   }
 
   getBooksData() {
-    this.http.get<Book[]>(`${this.apiUrl}/books`)
-    .subscribe(result => this.booksList = result);
+    this.bookStoreService
+      .getBooksData()
+      .subscribe((books) => (this.booksList = books));
+  }
+
+  getBookInfo(id: any) {
+    this.bookStoreService
+      .getBookInfo(id)
+      .subscribe((book) => (this.book = book));
+  }
 }
-
-getBookInfo(id: any) {
-this.http.get<Book>(`${this.apiUrl}/books/${id}`)
-.subscribe(book => this.book = book);
-}
-
-}
-
-

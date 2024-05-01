@@ -17,6 +17,9 @@ import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-reg
 import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registration-form/rx-builder-registration-form.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BooksStoreHomeComponent } from './books-store/books-store-home/books-store-home.component';
+import { NewBookComponent } from './books-store/new-book/new-book.component';
+import { DetailsBookComponent } from './books-store/details-book/details-book.component';
+import { ListBookComponent } from './books-store/list-book/list-book.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { BooksStoreHomeComponent } from './books-store/books-store-home/books-st
     RxRegistrationFormComponent,
     RxBuilderRegistrationFormComponent,
     BooksStoreHomeComponent,
+    NewBookComponent,
+    DetailsBookComponent,
+    ListBookComponent,
   ],
   imports: [
     BrowserModule,

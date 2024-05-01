@@ -9,6 +9,9 @@ import { FormHomeComponent } from './forms/form-home/form-home.component';
 import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-registration-form.component';
 import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registration-form/rx-builder-registration-form.component';
 import { BooksStoreHomeComponent } from './books-store/books-store-home/books-store-home.component';
+import { NewBookComponent } from './books-store/new-book/new-book.component';
+import { DetailsBookComponent } from './books-store/details-book/details-book.component';
+import { ListBookComponent } from './books-store/list-book/list-book.component';
 
 const routes: Routes = [
   {path: '', component: AppHomeComponent},
@@ -16,8 +19,10 @@ const routes: Routes = [
   {path: 'books/search', component: BookSearchHomeComponent},
   {path: 'forms', component: FormHomeComponent},
   {path: 'forms/reactive', component: RxRegistrationFormComponent},
-  {path: 'books-store', component: BooksStoreHomeComponent}
-
+  {path: 'books-store', component: BooksStoreHomeComponent},
+  {path: 'books-store/new', component: NewBookComponent},
+  {path: 'books-store/list', component: ListBookComponent},
+  {path: 'books-store/:id', component: DetailsBookComponent},
 ];
 
 @NgModule({

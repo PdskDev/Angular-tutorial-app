@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../models/Book';
-import { BOOKS } from '../models/mock-books-list';
+import { Book } from '../models/BookModel';
+//import { BOOKS } from '../models/mock-books-list';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookApiService {
 
-  booksList: Book[] = BOOKS;
+  baseUrl: string = "http://localhost:4567";
 
-  constructor() {}
 
-  getAllBooks(){
+  constructor(private http: HttpClient) {}
+
+  /* getAllBooks(){
     console.log('Get all books with Book API service');
     return this.booksList;
   }
@@ -26,5 +29,15 @@ export class BookApiService {
     console.log('Delete a book with Book API service');
     this.booksList = this.booksList.filter(book => book.isbn !== isbn);
     return this.booksList;
+  } */
+
+  getBooksData(): Observable<Book[]> {
+   return this.http.get<Book[]>(`${this.baseUrl}/books`);
   }
+
+  getBookInfo(id: any): Observable<Book> {
+    return this.http.get<Book>(`${this.baseUrl}/books/${id}`);
+  }
+
+
 }
