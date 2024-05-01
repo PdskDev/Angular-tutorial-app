@@ -5,12 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookApiService {
-
-  baseUrl: string = "http://localhost:4567";
-
+  baseUrl: string = 'http://localhost:4567';
+  headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) {}
 
@@ -32,12 +31,14 @@ export class BookApiService {
   } */
 
   getBooksData(): Observable<Book[]> {
-   return this.http.get<Book[]>(`${this.baseUrl}/books`);
+    return this.http.get<Book[]>(`${this.baseUrl}/books`);
   }
 
   getBookInfo(id: any): Observable<Book> {
     return this.http.get<Book>(`${this.baseUrl}/books/${id}`);
   }
 
-
+  deleteBook(id: number) {
+    return this.http.delete(`${this.baseUrl}/books/${id}`);
+  }
 }

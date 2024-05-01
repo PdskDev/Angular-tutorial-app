@@ -37,4 +37,14 @@ export class DetailsBookComponent implements OnInit {
       )
       .subscribe((book) => (this.book = book));
   }
+
+  deleteBook(id: number) {
+    this.bookStoreService
+      .deleteBook(id)
+      .subscribe((res) => this.router.navigate(['/books-store/list']));
+  }
+
+  goBack() {
+    this.location.back();
+  }
 }
