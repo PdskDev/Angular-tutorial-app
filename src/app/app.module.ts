@@ -15,11 +15,12 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
 import { FormHomeComponent } from './forms/form-home/form-home.component';
 import { RxRegistrationFormComponent } from './forms/rx-registration-form/rx-registration-form.component';
 import { RxBuilderRegistrationFormComponent } from './forms/rx-builder-registration-form/rx-builder-registration-form.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BooksStoreHomeComponent } from './books-store/books-store-home/books-store-home.component';
 import { NewBookComponent } from './books-store/new-book/new-book.component';
 import { DetailsBookComponent } from './books-store/details-book/details-book.component';
 import { ListBookComponent } from './books-store/list-book/list-book.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,10 @@ import { ListBookComponent } from './books-store/list-book/list-book.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   //providers: [{provide: BookServiceService, useClass: BookApiService}],
   providers: [BookServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
