@@ -21,6 +21,7 @@ import { NewBookComponent } from './books-store/new-book/new-book.component';
 import { DetailsBookComponent } from './books-store/details-book/details-book.component';
 import { ListBookComponent } from './books-store/list-book/list-book.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BooksStoreModule } from './books-store/books-store.module';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormHomeComponent,
     RxRegistrationFormComponent,
     RxBuilderRegistrationFormComponent,
-    BooksStoreHomeComponent,
-    NewBookComponent,
-    DetailsBookComponent,
-    ListBookComponent,
+    //BooksStoreHomeComponent,
+    //NewBookComponent,
+    //DetailsBookComponent,
+    //ListBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    BooksStoreModule,
   ],
   //providers: [{provide: BookServiceService, useClass: BookApiService}],
   providers: [BookServiceService],

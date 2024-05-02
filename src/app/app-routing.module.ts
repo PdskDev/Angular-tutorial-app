@@ -14,19 +14,19 @@ import { DetailsBookComponent } from './books-store/details-book/details-book.co
 import { ListBookComponent } from './books-store/list-book/list-book.component';
 
 const routes: Routes = [
-  {path: '', component: AppHomeComponent},
-  {path: 'books/list', component: BookHomeComponent},
-  {path: 'books/search', component: BookSearchHomeComponent},
-  {path: 'forms', component: FormHomeComponent},
-  {path: 'forms/reactive', component: RxRegistrationFormComponent},
-  {path: 'books-store', component: BooksStoreHomeComponent},
-  {path: 'books-store/new', component: NewBookComponent},
-  {path: 'books-store/list', component: ListBookComponent},
-  {path: 'books-store/:id', component: DetailsBookComponent},
+  { path: '', component: AppHomeComponent },
+  { path: 'books/list', component: BookHomeComponent },
+  { path: 'books/search', component: BookSearchHomeComponent },
+  { path: 'forms', component: FormHomeComponent },
+  { path: 'forms/reactive', component: RxRegistrationFormComponent },
+  //{path: 'books-store', component: BooksStoreHomeComponent},
+  //{path: 'books-store/new', component: NewBookComponent},
+  //{path: 'books-store/list', component: ListBookComponent},
+  //{path: 'books-store/:id', component: DetailsBookComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
