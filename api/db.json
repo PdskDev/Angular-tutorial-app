@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Java Coding Problems",
       "authors": " Anghel Leonard",
       "published": "23 septembre 2019",
@@ -9,7 +9,7 @@
       "coverImage": "https://m.media-amazon.com/images/I/61F-wMUQ5ML._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Angular Cookbook - Second Edition",
       "authors": " Muhammad Ahsan Ayaz",
       "published": "29 décembre 2023",
@@ -17,7 +17,7 @@
       "coverImage": "https://m.media-amazon.com/images/I/71MYVL9PP+L._SL1360_.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Modern API Development with Spring 6 and Spring Boot 3 - Second Edition",
       "authors": " Sourabh Sharma",
       "published": "22 septembre 2023 ",
@@ -25,7 +25,7 @@
       "coverImage": "https://m.media-amazon.com/images/I/61VpEJ6ulyL._SL1360_.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Full Stack Quarkus and React",
       "authors": " Marc Nuri San Felix",
       "published": "30 novembre 2022",
@@ -33,7 +33,7 @@
       "coverImage": "https://m.media-amazon.com/images/I/71nFGN5aIJL._SL1500_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Practical Next.js for E-Commerce",
       "authors": " Alex Libby",
       "published": "24 août 2023",
@@ -47,6 +47,15 @@
       "published": "17 mars 2023",
       "description": "Let industry experts guide you on your journey to becoming a Vue.js developer with the help of practical projects and fun exercises.",
       "coverImage": "https://m.media-amazon.com/images/I/61Jvmc61xBL._SL1233_.jpg"
+    },
+    {
+      "id": "b23c",
+      "isbn": "978-1839215414",
+      "title": "Full-Stack React Projects",
+      "authors": " Shama Hoque",
+      "published": "17 avril 2020",
+      "description": "A practical, project-based guide to full-stack JavaScript web development combining the power of React with industry-tested server-side technologies Key Features      Build your career as a full-stack developer with this practical guide     Understand how the different aspects of a MERN application come together through a series of practical projects     Master the MERN stack by building robust social media, E-commerce store, and web-based VR game apps",
+      "coverImage": "https://m.media-amazon.com/images/I/81opCxE5j0L._SL1500_.jpg"
     }
   ]
 }

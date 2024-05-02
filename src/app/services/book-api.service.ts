@@ -41,4 +41,9 @@ export class BookApiService {
   deleteBook(id: number) {
     return this.http.delete(`${this.baseUrl}/books/${id}`);
   }
+
+  addBook(book: Book) {
+    const body = JSON.stringify(book);
+    return this.http.post(`${this.baseUrl}/books`, book);
+  }
 }
