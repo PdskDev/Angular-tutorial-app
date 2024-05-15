@@ -1,12 +1,14 @@
 <div>
   <h1 [textContent]="welcomeMessage"></h1>
   <h5 bind-textContent="welcomeMessage"></h5>
-  <p><input type="text" value="{{welcomeMessage}}" /></p>
-  <p><input type="text" [value]="inputMessage" (blur)="showMessageOnKeyPress($event)"/></p>
-  <p><input type="text" [value]="inputMessage" on-blur="showMessageOnKeyPress($event)"/></p>
+  <form #demoForm="ngForm" novalidate>
+  <p><input type="text" value="{{welcomeMessage}}" #welcomeMessage ngModel /></p>
+  <p><input type="text" [value]="inputMessage" (blur)="showMessageOnKeyPress($event)" #inputMessage ngModel/></p>
+  <p><input type="text" [value]="inputMessage" on-blur="showMessageOnKeyPress($event)" #inputMessage2 ngModel/></p>
   <p [textContent]="textSaisi"></p>
-  <p><input type="text" [(ngModel)]="textSaisi" size="50"/></p>
+  <p><input type="text" [(ngModel)]="textSaisi" size="50" #textSaisi ngModel/></p>
   <button type="button" (click)="showMessage('Pourquoi tu cliques sur moi ?')">Click</button>
+</form>
 </div>
 <div>
   <table border="1">

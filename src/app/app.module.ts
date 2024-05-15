@@ -7,7 +7,7 @@ import { BookHomeComponent } from './books/book-home/book-home.component';
 import { AppHomeComponent } from './home/app-home/app-home.component';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { BookServiceService } from './services/book-service.service';
-//import { BookApiService } from './services/book-api.service';
+import { BookApiService } from './services/book-api.service';
 import { BookSearchComponent } from './books/book-search/book-search.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookSearchHomeComponent } from './books/book-search-home/book-search-home.component';
@@ -51,7 +51,7 @@ import { BooksStoreModule } from './books-store/books-store.module';
     BooksStoreModule,
   ],
   //providers: [{provide: BookServiceService, useClass: BookApiService}],
-  providers: [BookServiceService],
+  providers: [BookServiceService, BookApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
